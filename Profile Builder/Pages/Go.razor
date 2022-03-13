@@ -9,7 +9,7 @@
 @if (user == null)
 {
     // + If this doesn't load quickly there is likely an error. Should do a timeout.
-    <p><em>Nothing found for @userRoute...</em></p>
+    <p><em>Looking for @userRoute...</em></p>
 }
 else if (relativeRoutePath == null || (relativeRoutePath != null && routedLink == null))
 {
