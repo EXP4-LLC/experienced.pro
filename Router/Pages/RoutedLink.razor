@@ -1,0 +1,49 @@
+﻿@page "/routedlinks"
+@inject HttpClient Http
+
+<PageTitle>Routed Links</PageTitle>
+
+<h1>Routed Links</h1>
+
+<p>These links have been created.</p>
+
+@if (links == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Route</th>
+                <th>URL</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var link in links)
+            {
+                <tr>
+                    <td>@link.Name</td>
+                    <td>@link.Description</td>
+                    <td>@link.RelativeRoutePath</td>
+                    <td>@link.RedirectToUrl</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private SharedClasses.RoutedLink[]? links;
+    private SharedClasses.User[]? users;
+
+    protected override async Task OnInitializedAsync()
+    {
+        links = await Http.GetFromJsonAsync<SharedClasses.RoutedLink[]>("sample-data/routedlinks.json");
+        users = await Http.GetFromJsonAsync<SharedClasses.User[]>("sample-data/users.json");
+    }
+
+}

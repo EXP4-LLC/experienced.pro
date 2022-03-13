@@ -1,0 +1,85 @@
+﻿@page "/go/{userRoute}"
+@page "/go/{userRoute}/{relativeRoutePath}"
+@layout GoLayout
+@inject HttpClient Http
+@inject NavigationManager NavManager
+
+<PageTitle>Routing page...</PageTitle>
+
+@if (user == null)
+{
+    // + If this doesn't load quickly there is likely an error. Should do a timeout.
+    <p><em>Nothing found for @userRoute...</em></p>
+}
+else if (relativeRoutePath == null || (relativeRoutePath != null && routedLink == null))
+{
+    // + Display all links for user.
+    <h3>@user.FullName's Experienced Pro Links</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var userLink in userLinks)
+            {
+                <tr>
+                    <td><a href="@userLink.RedirectToUrl" target="_blank">@userLink.Name</a></td>
+                    <td>@userLink.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    NavManager.NavigateTo(routedLink.RedirectToUrl);
+}
+
+@code {
+    [Parameter] public string? userRoute { get; set; }
+    [Parameter] public string? relativeRoutePath { get; set; }
+
+    private SharedClasses.Entities.User? user;
+    private SharedClasses.Entities.RoutedLink[]? userLinks;
+    private SharedClasses.Entities.RoutedLink? routedLink;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            user = (await Http.GetFromJsonAsync<SharedClasses.Entities.User[]>("sample-data/users.json"))
+                .Where(u => u.UserRoutePath.ToLower().Trim() == userRoute.ToLower().Trim())
+                .Select(u => u).First();            
+        } catch
+        {
+            user = null;
+        }
+
+        if (user != null)
+        {
+            try
+            {
+                userLinks = (await Http.GetFromJsonAsync<SharedClasses.Entities.RoutedLink[]>("sample-data/routedlinks.json"))
+                    .Where(r => r.AssociatedUserId == user.UserId)
+                    .ToArray();
+            } catch
+            {
+                userLinks = null;
+            }
+        }
+
+        if (relativeRoutePath != null) {
+            try {
+                routedLink = userLinks
+                    .Where(r => r.RelativeRoutePath == relativeRoutePath && r.AssociatedUserId == user.UserId)
+                    .First();
+            } catch
+            {
+                routedLink = null;
+            }
+        }
+    }
+}

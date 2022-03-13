@@ -1,0 +1,40 @@
+﻿@page "/u/{userName}"
+@layout GoLayout
+@inject HttpClient Http
+
+@if (user != null)
+{
+    <h3>Welcome @userName</h3>
+    <p>@user.FullName</p>
+}
+else
+{
+    <h3>User @userName not found!</h3>
+}
+<AuthorizeView>
+    <Authorized>
+        Hello, @context.User.Identity?.Name!
+    </Authorized>
+    <NotAuthorized>
+        Not authorized.
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    [Parameter] public string? userName { get; set; }
+
+    private SharedClasses.Entities.User[]? users;
+    private SharedClasses.Entities.User? user;
+
+    protected override async Task OnInitializedAsync()
+    {
+        users = await Http.GetFromJsonAsync<SharedClasses.Entities.User[]>("sample-data/users.json");
+        try {
+            user = users.Where(u => u.UserName.ToLower() == userName.ToLower()).First();
+        } catch
+        {
+            user = null;
+        }
+    }
+
+}

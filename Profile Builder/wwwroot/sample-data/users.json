@@ -1,0 +1,26 @@
+﻿[
+  {
+    "UserId": "6adbaa94-5996-4ae3-bc87-04f27f391faf",
+    "UserName": "johnyarbi",
+    "EmailAddress": "john@yarbi.com",
+    "FirstName": "John",
+    "MiddleName": "D",
+    "LastName": "Yarborough",
+    "Active": true,
+    "UserRoutePath": "johnyarbi",
+    "DateCreated": "2022-03-11T12:51:05",
+    "DateLastUpdated": "2022-03-11T12:52:15"
+  },
+  {
+    "UserId": "e97484f2-bf37-42f1-ada4-c411774c0292",
+    "UserName": "kcup",
+    "EmailAddress": "kerrie@y1ventures.com",
+    "FirstName": "Kerrie",
+    "MiddleName": "M",
+    "LastName": "Yarborough",
+    "Active": true,
+    "UserRoutePath": "kcup",
+    "DateCreated": "2022-03-11T12:55:05",
+    "DateLastUpdated": "2022-03-11T12:56:15"
+  }
+]

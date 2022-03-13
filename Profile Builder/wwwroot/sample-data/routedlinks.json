@@ -1,0 +1,62 @@
+﻿[
+  {
+    "RoutedLinkId": "adbf4d7f-c2fb-4f9c-9b2d-4dc32d69635b",
+    "AssociatedUserId": "6adbaa94-5996-4ae3-bc87-04f27f391faf",
+    "Name": "MIT-ADSP ePortfolio",
+    "Description": "MIT Professional Education course on Applied Data Science.",
+    "LinkType": "Portfolio",
+    "Active": true,
+    "RedirectToUrl": "https://eportfolio.mygreatlearning.com/john-yarborough",
+    "RelativeRoutePath": "mit-portfolio",
+    "DateCreated": "2022-03-13T12:51:05",
+    "DateLastUpdated": "2022-03-13T12:52:15"
+  },
+  {
+    "RoutedLinkId": "10a69f6f-07d2-46f5-a45b-547a9e82f547",
+    "AssociatedUserId": "6adbaa94-5996-4ae3-bc87-04f27f391faf",
+    "Name": "LinkedIn",
+    "Description": "LinkedIn Profile",
+    "LinkType": "LinkedIn",
+    "Active": true,
+    "RedirectToUrl": "https://linkedin.com/in/johnyarbi",
+    "RelativeRoutePath": "linkedin",
+    "DateCreated": "2022-03-12T12:56:05",
+    "DateLastUpdated": "2022-03-12T12:56:15"
+  },
+  {
+    "RoutedLinkId": "a59cf6b8-e09c-4ea9-8ad5-2a12f384d80a",
+    "AssociatedUserId": "6adbaa94-5996-4ae3-bc87-04f27f391faf",
+    "Name": "GitHub Profile",
+    "Description": "GitHub user profile repository.",
+    "LinkType": "GitHub",
+    "Active": true,
+    "RedirectToUrl": "https://github.com/johnyarbi",
+    "RelativeRoutePath": "github",
+    "DateCreated": "2022-03-12T12:57:05",
+    "DateLastUpdated": "2022-03-12T12:57:15"
+  },
+  {
+    "RoutedLinkId": "4e2b9a8b-03fa-4b04-b49e-7d01925b3703",
+    "AssociatedUserId": "e97484f2-bf37-42f1-ada4-c411774c0292",
+    "Name": "LinkedIn",
+    "Description": "LinkedIn Profile",
+    "LinkType": "LinkedIn",
+    "Active": true,
+    "RedirectToUrl": "https://linkedin.com/in/kerrie-yarborough",
+    "RelativeRoutePath": "linkedin",
+    "DateCreated": "2022-03-13T12:57:05",
+    "DateLastUpdated": "2022-03-13T12:57:15"
+  },
+  {
+    "RoutedLinkId": "3370e80d-38de-4a84-8fe1-85050ebb91a4",
+    "AssociatedUserId": "e97484f2-bf37-42f1-ada4-c411774c0292",
+    "Name": "Renewed Wellness Website",
+    "Description": "Business website for Renewed Wellness",
+    "LinkType": "BusinessSite",
+    "Active": true,
+    "RedirectToUrl": "https://renewed-wellness.com",
+    "RelativeRoutePath": "business",
+    "DateCreated": "2022-03-13T13:57:05",
+    "DateLastUpdated": "2022-03-13T13:57:15"
+  }
+]
