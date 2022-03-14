@@ -9,27 +9,28 @@ namespace SharedClasses.Entities
 {
     public enum RoutedLinkType
     {
-        Default,
-        Business,
-        Portfolio,
-        Resume,
-        Blog,
-        YouTube,
-        Instagram,
-        LinkedIn,
-        Indeed,
-        Upwork,
-        Fivrr,
-        GitHub,
-        Twitter,
-        Facebook,
-        Other
+        Default =       0,
+        LinkedIn =      1,
+        Resume =        2,
+        Business =      3,
+        Portfolio =     4,
+        Blog =          5,
+        GitHub =        6,
+        Facebook =      7,
+        Instagram =     8,
+        Twitter =       9,
+        YouTube =       10,
+        Indeed =        11,
+        Upwork =        12,
+        Fivrr =         13,
+        Other =         99,
     }
     public class RoutedLink
     {
-        private Guid _Id;
+        private readonly Guid _Id;
         //private Guid _UserId;
-        private RoutedLinkType _LinkType;
+        //private RoutedLinkType _LinkType;
+        //private string _LinkTypeIcon;
         public string RoutedLinkId { get; set; }
         //{
             //get { return _Id.ToString(); }
@@ -45,28 +46,131 @@ namespace SharedClasses.Entities
         //}
         public string Name { get; set; }
         public string? Description { get; set; }
-        public string? LinkType { 
-            get { return _LinkType.ToString(); }
-            set { 
+        public string LinkType { get; set; }
+            /*set { 
                 switch (LinkType)
                 {
-                    case "Default": _LinkType = RoutedLinkType.Default; break;
-                    case "Business": _LinkType = RoutedLinkType.Business; break;
-                    case "Portfolio": _LinkType = RoutedLinkType.Portfolio; break;
-                    case "Resume": _LinkType = RoutedLinkType.Resume; break;
-                    case "Blog": _LinkType = RoutedLinkType.Blog; break;
-                    case "YouTube": _LinkType = RoutedLinkType.YouTube; break;
-                    case "Instagram": _LinkType = RoutedLinkType.Instagram; break;
-                    case "LinkedIn": _LinkType = RoutedLinkType.LinkedIn; break;
-                    case "Indeed": _LinkType = RoutedLinkType.Indeed; break;
-                    case "Upwork": _LinkType = RoutedLinkType.Upwork; break;
-                    case "Fivrr": _LinkType = RoutedLinkType.Fivrr; break;
-                    case "GitHub": _LinkType = RoutedLinkType.GitHub; break;
-                    case "Twitter": _LinkType = RoutedLinkType.Twitter; break;
-                    case "Facebook": _LinkType = RoutedLinkType.Facebook; break;
-                    case "Other": _LinkType = RoutedLinkType.Other; break;
-                    default: _LinkType = RoutedLinkType.Other; Debug.WriteLine($"Invalid RoutedLinkType '{LinkType}' provided. Using 'Other'."); break;
+                    case "Default": 
+                        _LinkType = RoutedLinkType.Default;
+                        _LinkTypeIcon = "<i class=\"bi bi-globe\"></i>";
+                        break;
+                    case "Business": 
+                        _LinkType = RoutedLinkType.Business; 
+                        _LinkTypeIcon = "<i class=\"bi bi-briefcase\"></i>";
+                        break;
+                    case "Portfolio": 
+                        _LinkType = RoutedLinkType.Portfolio;
+                        _LinkTypeIcon = "<i class=\"bi bi-globe\"></i>";
+                        break;
+                    case "Resume": 
+                        _LinkType = RoutedLinkType.Resume;
+                        _LinkTypeIcon = "<i class=\"bi bi-file-earmark-person\"></i>";
+                        break;
+                    case "Blog": 
+                        _LinkType = RoutedLinkType.Blog;
+                        _LinkTypeIcon = "<i class=\"bi bi-globe\"></i>";
+                        break;
+                    case "YouTube": 
+                        _LinkType = RoutedLinkType.YouTube;
+                        _LinkTypeIcon = "<i class=\"bi bi-youtube\"></i>";
+                        break;
+                    case "Instagram": 
+                        _LinkType = RoutedLinkType.Instagram;
+                        _LinkTypeIcon = "<i class=\"bi bi-instagram\"></i>";
+                        break;
+                    case "LinkedIn": 
+                        _LinkType = RoutedLinkType.LinkedIn;
+                        _LinkTypeIcon = "<i class=\"bi bi-linkedin\"></i>";
+                        break;
+                    case "Indeed": 
+                        _LinkType = RoutedLinkType.Indeed;
+                        _LinkTypeIcon = "<i class=\"bi bi-globe\"></i>";
+                        break;
+                    case "Upwork": 
+                        _LinkType = RoutedLinkType.Upwork;
+                        _LinkTypeIcon = "<i class=\"bi bi-globe\"></i>";
+                        break;
+                    case "Fivrr": 
+                        _LinkType = RoutedLinkType.Fivrr;
+                        _LinkTypeIcon = "<i class=\"bi bi-globe\"></i>";
+                        break;
+                    case "GitHub": 
+                        _LinkType = RoutedLinkType.GitHub;
+                        _LinkTypeIcon = "<i class=\"bi bi-github\"></i>";
+                        break;
+                    case "Twitter": 
+                        _LinkType = RoutedLinkType.Twitter;
+                        _LinkTypeIcon = "<i class=\"bi bi-twitter\"></i>";
+                        break;
+                    case "Facebook": 
+                        _LinkType = RoutedLinkType.Facebook;
+                        _LinkTypeIcon = "<i class=\"bi bi-facebook\"></i>";
+                        break;
+                    case "Other": 
+                        _LinkType = RoutedLinkType.Other;
+                        _LinkTypeIcon = "<i class=\"bi bi-globe\"></i>";
+                        break;
+                    default: 
+                        _LinkType = RoutedLinkType.Other;
+                        _LinkTypeIcon = "<i class=\"bi bi-globe\"></i>";
+                        Debug.WriteLine($"Invalid RoutedLinkType '{LinkType}' provided. Using 'Other'."); 
+                        break;
                 }
+            }
+        }*/
+        public string GetLinkTypeIcon()
+        { 
+            switch (LinkType)
+            {
+                case "Default":
+                    //_LinkType = RoutedLinkType.Default;
+                    return "<i class=\"bi bi-globe\"></i>";
+                case "Business":
+                    //_LinkType = RoutedLinkType.Business;
+                    return "<i class=\"bi bi-building\"></i>";
+                case "Portfolio":
+                    //_LinkType = RoutedLinkType.Portfolio;
+                    return "<i class=\"bi bi-briefcase\"></i>";
+                case "Resume":
+                    //_LinkType = RoutedLinkType.Resume;
+                    return "<i class=\"bi bi-file-earmark-person\"></i>";
+                case "Blog":
+                    //_LinkType = RoutedLinkType.Blog;
+                    return "<i class=\"bi bi-collection\"></i>";
+                case "YouTube":
+                    //_LinkType = RoutedLinkType.YouTube;
+                    return "<i class=\"bi bi-youtube\"></i>";
+                case "Instagram":
+                    //_LinkType = RoutedLinkType.Instagram;
+                    return "<i class=\"bi bi-instagram\"></i>";
+                case "LinkedIn":
+                    //_LinkType = RoutedLinkType.LinkedIn;
+                    return "<i class=\"bi bi-linkedin\"></i>";
+                case "Indeed":
+                    //_LinkType = RoutedLinkType.Indeed;
+                    return "<i class=\"bi bi-file-earmark-person\"></i>";
+                case "Upwork":
+                    //_LinkType = RoutedLinkType.Upwork;
+                    return "<i class=\"bi bi-file-earmark-person\"></i>";
+                case "Fivrr":
+                    //_LinkType = RoutedLinkType.Fivrr;
+                    return "<i class=\"bi bi-file-earmark-person\"></i>";
+                case "GitHub":
+                    //_LinkType = RoutedLinkType.GitHub;
+                    return "<i class=\"bi bi-github\"></i>";
+                case "Twitter":
+                    //_LinkType = RoutedLinkType.Twitter;
+                    return "<i class=\"bi bi-twitter\"></i>";
+                case "Facebook":
+                    //_LinkType = RoutedLinkType.Facebook;
+                    return "<i class=\"bi bi-facebook\"></i>";
+                case "Other":
+                    //_LinkType = RoutedLinkType.Other;
+                    return "<i class=\"bi bi-globe\"></i>";
+                default:
+                    //_LinkType = RoutedLinkType.Other;
+                    Debug.WriteLine($"Invalid RoutedLinkType '{LinkType}' provided. Using 'Other'.");
+                    return "<i class=\"bi bi-warning\"></i>";
             }
         }
         public bool Active { get; set; }
@@ -79,7 +183,7 @@ namespace SharedClasses.Entities
         {
             Debug.WriteLine("In RoutedLink default constructor.");
         }
-        public RoutedLink(string associatedUserId, string name, string? desc, string? linkType, bool active, string? redirectToUrl, string? relativeRoutePath)
+        public RoutedLink(string associatedUserId, string name, string? desc, string linkType, bool active, string? redirectToUrl, string? relativeRoutePath)
         {
             this._Id = Guid.NewGuid();
             //this._UserId = associatedUserId;

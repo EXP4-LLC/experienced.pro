@@ -52,7 +52,7 @@
     "AssociatedUserId": "e97484f2-bf37-42f1-ada4-c411774c0292",
     "Name": "Renewed Wellness Website",
     "Description": "Business website for Renewed Wellness",
-    "LinkType": "BusinessSite",
+    "LinkType": "Business",
     "Active": true,
     "RedirectToUrl": "https://renewed-wellness.com",
     "RelativeRoutePath": "business",

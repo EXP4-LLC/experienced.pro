@@ -9,29 +9,35 @@
 @if (user == null)
 {
     // + If this doesn't load quickly there is likely an error. Should do a timeout.
-    <p><em>Looking for @userRoute...</em></p>
+    <div class="container-fluid d-flex flex-column align-middle justify-content-center min-vh-100 min-vw-100 bg-white text-center">
+        <div class="text-center"><img src="images/experienced-pro-500x500.png" height="250" /></div>
+        <div class="h1 p-5 text-center" style="font-family: Montserrat, sans-serif; font-weight: 500;">
+            <strong>Looking for @userRoute...</strong>
+        </div>
+    </div>
 }
 else if (relativeRoutePath == null || (relativeRoutePath != null && routedLink == null))
 {
     // + Display all links for user.
-    <h3>@user.FullName's Experienced Pro Links</h3>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var userLink in userLinks)
-            {
-                <tr>
-                    <td><a href="@userLink.RedirectToUrl" target="_blank">@userLink.Name</a></td>
-                    <td>@userLink.Description</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    <h3>@user.FullName's Pro Portal</h3>
+
+    <div class="card-group">
+    @foreach (var userLink in userLinks)
+    {
+        <div class="card">
+            <figure class="card-img-top bg-dark text-light">
+                <p style="font-size:4rem; text-align:center; vertical-align: middle;">@((MarkupString)userLink.GetLinkTypeIcon())</p>
+            </figure>
+            <div class="card-body">
+                <h5 class="card-title">@userLink.Name</h5>
+                <p class="card-text">@userLink.Description</p>
+            </div>
+            <div class="card-footer">
+                <a href="@userLink.RedirectToUrl" class="btn btn-primary">View</a>
+            </div>
+        </div>
+    }
+    </div>
 }
 else
 {
@@ -71,7 +77,8 @@ else
             }
         }
 
-        if (relativeRoutePath != null) {
+        if (relativeRoutePath != null) 
+        {
             try {
                 routedLink = userLinks
                     .Where(r => r.RelativeRoutePath == relativeRoutePath && r.AssociatedUserId == user.UserId)

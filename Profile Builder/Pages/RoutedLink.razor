@@ -6,6 +6,26 @@
 <h1>Routed Links</h1>
 
 <p>These links have been created.</p>
+<!--
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @@foreach (var userLink in userLinks)
+            {
+                <tr>
+                    <td><a href="@@userLink.RedirectToUrl" target="_blank">@@userLink.Name</a></td>
+                    <td>@@userLink.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+-->
+
 @code {
     /*
 @if (links == null)
